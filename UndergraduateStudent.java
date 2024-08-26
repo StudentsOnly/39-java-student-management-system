@@ -14,7 +14,7 @@ public class UndergraduateStudent extends Student {
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Is an undergraduate student in " + yearOfStudy + " year.");
+        System.out.println(" ==> Undergraduate student in " + yearOfStudy + " year.");
     }
 }
 

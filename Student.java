@@ -32,7 +32,7 @@ public class Student {
     }
 
     public void displayInfo() {
-        System.out.println("Student: " + name + " with id:  " + studentID);
+        System.out.print("Student = " + name + " ID =  " + studentID);
     }
 
 }

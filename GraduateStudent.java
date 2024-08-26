@@ -14,7 +14,7 @@ public class GraduateStudent extends Student {
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Is a Graduate Student.");
+        System.out.println(" ==> Graduate Student: ");
         System.out.println("Research Topic: " + researchTopic);
     }
 }
