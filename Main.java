@@ -7,7 +7,7 @@ public class Main{
         addGraduateStudent(-1, "Bob", "Exceptions"); // id error
         addGraduateStudent(1, "Bob", "Exceptions");
         addUndergraduateStudent(2, "John", 1300); // year error
-        addUndergraduateStudent(3, "John", 2000); // year error
+        addUndergraduateStudent(3, "John", 2000);
 
         printStudentsInfo(students);
     }
