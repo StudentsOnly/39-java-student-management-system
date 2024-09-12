@@ -1,44 +1,37 @@
 import java.util.HashMap;
 
 public class Main{
+    static HashMap<Integer, Student> students = new HashMap<>();
     public static void main(String[] args){
-        HashMap<Integer, Student> students = new HashMap<>();
-        students.put(1, new UndergraduateStudent());
-        students.put(2, new GraduateStudent());
 
-        setUndergraduateAttributes(students.get(1), 1, "Bob", 2024);
-        setGraduateAttributes(students.get(2), 2, "Alex", "Inheritance");
-
-        /*
-        We can also first create an objects -> set parameters -> put obj in HashMap:
-            UndergraduateStudent s1 = new UndergraduateStudent();
-            s1.setName("John");
-            s1.setYear(2024);
-            s1.setStudentID(1);
-            students.put(s1.getStudentID(),s1);
-
-            GraduateStudent s2 = new GraduateStudent();
-            s2.setName("Alex");
-            s2.setResearchTopic("Inheritance");
-            s2.setStudentID(2);
-            students.put(s2.getStudentID(),s2);
-         */
+        addGraduateStudent(-1, "Bob", "Exceptions"); // id error
+        addGraduateStudent(1, "Bob", "Exceptions");
+        addUndergraduateStudent(2, "John", 1300); // year error
+        addUndergraduateStudent(3, "John", 2000); // year error
 
         printStudentsInfo(students);
     }
 
-    static void setUndergraduateAttributes(Student student, Integer id, String name, Integer year){
-        UndergraduateStudent temp = (UndergraduateStudent) student;
-        temp.setName(name);
-        temp.setYear(year);
-        temp.setStudentID(id);
+    static void addUndergraduateStudent(Integer id, String name, Integer year){
+        UndergraduateStudent s1;
+        try{
+            s1 = new UndergraduateStudent(id, name, year);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+        students.put(s1.getStudentID(), s1);
     }
 
-    static void setGraduateAttributes(Student student, Integer id, String name, String researchTopic){
-        GraduateStudent temp = (GraduateStudent) student;
-        temp.setName(name);
-        temp.setResearchTopic(researchTopic);
-        temp.setStudentID(id);
+    static void addGraduateStudent(Integer id, String name, String researchTopic){
+        GraduateStudent s1;
+        try{
+            s1 = new GraduateStudent(id, name, researchTopic);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+        students.put(s1.getStudentID(), s1);
     }
 
 
