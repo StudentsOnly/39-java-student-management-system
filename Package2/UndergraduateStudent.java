@@ -5,6 +5,9 @@ public class UndergraduateStudent extends Student {
     private int year;
 
     public void setYear(int year) {
+        if (year < 1) {
+            throw new IllegalArgumentException("Year of study must be 1 or greater.");
+        }
         this.year = year;
     }
 

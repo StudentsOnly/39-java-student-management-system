@@ -5,7 +5,10 @@ public class Student {
     protected int studentID;
 
     public void setName(String name) {
-        this.name = name;
+
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty.");
+        }
     }
 
     public String getName() {
@@ -13,7 +16,10 @@ public class Student {
     }
 
     public void setStudentID(int studentID) {
-        this.studentID = studentID;
+
+        if (studentID <= 0) {
+            throw new IllegalArgumentException("Student ID must be a positive number.");
+        }
     }
 
     public int getStudentID() {

@@ -5,6 +5,10 @@ public class GraduateStudent extends Student {
     private String researchTopic;
 
     public void setResearchTopic(String researchTopic) {
+
+        if (researchTopic == null || researchTopic.trim().isEmpty()) {
+            throw new IllegalArgumentException("Research topic cannot be null or empty.");
+        }
         this.researchTopic = researchTopic;
     }
 
